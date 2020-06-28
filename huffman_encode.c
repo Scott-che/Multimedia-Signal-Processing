@@ -13,7 +13,7 @@ int main(int argc,char *argv[])
     int code[30];
     int codelen;
     };
-    struct Huffman huf[102];/**«Ø¥ßstruct¨Ó¦scodebookªº¸ê®Æ**/
+    struct Huffman huf[102];/**å»ºç«‹structä¾†å­˜codebookçš„è³‡æ–™**/
     for(i=0;i<102;i++){
         huf[i].number[0]=0;
         huf[i].number[1]=0;
@@ -21,7 +21,7 @@ int main(int argc,char *argv[])
         huf[i].number[3]=0;
         huf[i].number[4]=0;
     }
-    for(i=0;i<102;i++){/**Åª¨úcodebook**/
+    for(i=0;i<102;i++){/**è®€å–codebook**/
     while(!feof(fp)){
             a=fgetc(fp);
             temp=a;
@@ -52,7 +52,7 @@ int main(int argc,char *argv[])
     }
     int s[102],buffer[30]={0},v,r=0,n,test;
 
-      for(i=0;i<102;++i){/**§âcodebookªº¸ê®Æ¥ÑasciiÂà¦¨0~9¤§¶¡ªº¼Æ¦r**/
+      for(i=0;i<102;++i){/**æŠŠcodebookçš„è³‡æ–™ç”±asciiè½‰æˆ0~9ä¹‹é–“çš„æ•¸å­—**/
           test=huf[i].number[2]-48;
             if(test>=0){
                 s[i]=100*(huf[i].number[0]-48)+10*(huf[i].number[1]-48)+(huf[i].number[2]-48);
@@ -84,7 +84,7 @@ int main(int argc,char *argv[])
                 fprintf(fp3,"%c",n);
                 break;
                 }
-            else {/**Åª¨úinputªº¸ê®Æ¡A¤ñ¹ïcodebook¡Aº¡8­Óbit´N¿é¥X**/
+            else {/**è®€å–inputçš„è³‡æ–™ï¼Œæ¯”å°codebookï¼Œæ»¿8å€‹bitå°±è¼¸å‡º**/
 
             for(k=0;k<102;++k){
                 if(a==s[k]){
@@ -96,7 +96,7 @@ int main(int argc,char *argv[])
             }
             r=(r+k);
 
-            if(r>7&&r<16&&r!=8){/**¤À¦¨¤F¤£¦P°Ï¶¡¡A¤À§O¿é¥X1or2or3²Õ**/
+            if(r>7&&r<16&&r!=8){/**åˆ†æˆäº†ä¸åŒå€é–“ï¼Œåˆ†åˆ¥è¼¸å‡º1or2or3çµ„**/
               n=buffer[0]*128+buffer[1]*64+buffer[2]*32+buffer[3]*16+buffer[4]*8+buffer[5]*4+buffer[6]*2+buffer[7];
               fprintf(fp3,"%c",n);
               for(j=0;j<r-8;++j){
