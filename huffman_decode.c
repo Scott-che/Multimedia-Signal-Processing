@@ -24,7 +24,7 @@ int main(int argc,char *argv[])
     }
     fwrite(UTF8_Head,1,3,fp3);
     for(i=0;i<102;i++){
-    while(!feof(fp2)){/**Åª¨úcodebook**/
+    while(!feof(fp2)){/**è®€å–codebook**/
             a=fgetc(fp2);
             temp=a;
             if(temp!=9){
@@ -55,7 +55,7 @@ int main(int argc,char *argv[])
     }
     int s[102],test;
 
-    for(i=0;i<102;++i){/**§âcodebookªº¸ê®Æ¥ÑasciiÂà¦¨0~9¤§¶¡ªº¾ã¼Æ**/
+    for(i=0;i<102;++i){/**æŠŠcodebookçš„è³‡æ–™ç”±asciiè½‰æˆ0~9ä¹‹é–“çš„æ•´æ•¸**/
             test=huf[i].number[2]-48;
             if(test>=0){
                 s[i]=100*(huf[i].number[0]-48)+10*(huf[i].number[1]-48)+(huf[i].number[2]-48);
@@ -75,7 +75,7 @@ int main(int argc,char *argv[])
         fread(&a,1,1,fp);
         //k=a;
         if(feof(fp)){
-            for(k=8-buf_len;k<8;++k){/**³Ì«á¤@­Óbyte¦b«e­±¸É¹s¿é¥X**/
+            for(k=8-buf_len;k<8;++k){/**æœ€å¾Œä¸€å€‹byteåœ¨å‰é¢è£œé›¶è¼¸å‡º**/
                 buffer[k]=buffer[k-(8-buf_len)];
             }
             for(k=0;k<8-buf_len;++k){
@@ -99,13 +99,13 @@ int main(int argc,char *argv[])
         j=1;
         for(i=0;i<8;++i){
               k=a%(j*2)/j;
-              buffer[buf_len+7-i]=k;/**§âÅª¶i¨Óªº¼Æ¦rÂà¦¨¤G¶i¦ì**/
+              buffer[buf_len+7-i]=k;/**æŠŠè®€é€²ä¾†çš„æ•¸å­—è½‰æˆäºŒé€²ä½**/
               j*=2;
            }
            buf_len=buf_len+i;
 
 
-        for(q=0;q<=101;q++){/**¤@¦¸¥ýÅª¤@­Óbyte¶i¨Ó¡AµM«á¤ñ¹ï¡A¦pªG¨S§ä¨ì¬Û¦Pªº«h¦bÅª¶i¤@­Óbyte**/
+        for(q=0;q<=101;q++){/**ä¸€æ¬¡å…ˆè®€ä¸€å€‹byteé€²ä¾†ï¼Œç„¶å¾Œæ¯”å°ï¼Œå¦‚æžœæ²’æ‰¾åˆ°ç›¸åŒçš„å‰‡åœ¨è®€é€²ä¸€å€‹byte**/
                 t=0;
              while((buffer[t]==huf[q].code[t])&&(buf_len>=huf[q].codelen)){
                 ++t;
@@ -116,7 +116,7 @@ int main(int argc,char *argv[])
                     fprintf(fp3,"%c",n);}
 
 
-                    for(k=0;k<buf_len-t;++k){/**§â¥¼¿é¥Xªº©¹«eshift¡A«á­±«hÂk¹s**/
+                    for(k=0;k<buf_len-t;++k){/**æŠŠæœªè¼¸å‡ºçš„å¾€å‰shiftï¼Œå¾Œé¢å‰‡æ­¸é›¶**/
                         buffer[k]=buffer[k+t];
                     }
                     for(k=buf_len-t;k<buf_len;++k){
